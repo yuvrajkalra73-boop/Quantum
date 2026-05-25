@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumSpark • Human intelligence + Ai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', system_ui, sans-serif; font-weight: 600; }
+        .quantum-bg { background: radial-gradient(at center, #0a0f1e 0%, #020617 100%); }
+        .glass { background: rgba(255,255,255, 0.06); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255, 0.1); }
+        .gradient-text { background: linear-gradient(90deg, #00f0ff, #c026ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="bg-[#020617] text-white">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#020617]/95 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#00f0ff] to-[#c026ff] flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-atom text-white text-3xl"></i>
+                </div>
+                <div>
+                    <span class="font-display text-3xl font-semibold">Quantum</span>
+                    <span class="font-display text-3xl font-semibold bg-gradient-to-r from-[#00f0ff] to-[#c026ff] bg-clip-text text-transparent">Spark</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-x-4">
+                <button onclick="document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })" class="px-5 py-2.5 text-sm font-semibold rounded-2xl border border-white/20">Pricing</button>
+                <button onclick="showGetStartedModal()" class="px-6 py-2.5 bg-white text-[#020617] font-semibold rounded-2xl hover:bg-[#00f0ff] hover:text-white">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="pt-20 pb-16 quantum-bg text-center px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-white/5 border border-white/10 mb-6">
+                <span class="text-sm font-medium">Built with <span class="font-semibold">Human intelligence + Ai</span></span>
+            </div>
+
+            <h1 class="text-6xl md:text-7xl font-display font-semibold tracking-tighter leading-none mb-6">
+                We build stunning<br>web apps using<br>
+                <span class="gradient-text">Human intelligence + Ai</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-xl text-white/75 mb-10">
+                Fresh ideas. Blazing fast delivery. <span class="text-white">Personal support you can actually trust.</span>
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })" class="px-9 py-4 bg-white text-[#020617] font-semibold text-lg rounded-3xl">See Pricing &amp; Offers</button>
+                <button onclick="showGetStartedModal()" class="px-9 py-4 border border-white/30 font-semibold text-lg rounded-3xl">Start Your Project</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- TRUST BAR -->
+    <div class="bg-[#0a0f1e] border-b border-white/10 py-5">
+        <div class="max-w-5xl mx-auto px-6 flex flex-wrap justify-center items-center gap-x-10 gap-y-4 text-center">
+            <div class="flex items-center gap-x-3">
+                <i class="fa-solid fa-users text-[#00f0ff]"></i>
+                <div><span class="font-semibold">50+ Small Businesses</span><br><span class="text-xs text-white/60">Already trusted us</span></div>
+            </div>
+            <div class="flex items-center gap-x-3">
+                <i class="fa-solid fa-robot text-[#c026ff]"></i>
+                <div><span class="font-semibold">Human + AI Intelligence</span><br><span class="text-xs text-white/60">Best of both worlds</span></div>
+            </div>
+            <div class="flex items-center gap-x-3">
+                <i class="fa-solid fa-handshake text-emerald-400"></i>
+                <div><span class="font-semibold">Direct Support by Us</span><br><span class="text-xs text-white/60">Real humans. Real replies.</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHY US -->
+    <section class="max-w-6xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <div class="text-[#00f0ff] text-sm font-semibold tracking-[2px]">WHY BUSINESSES LOVE WORKING WITH US</div>
+            <h2 class="text-5xl font-display font-semibold tracking-tighter mt-3">Not just another agency.<br>We combine Human intelligence + Ai.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="glass p-8 rounded-3xl">
+                <div class="text-4xl mb-4">🚀</div>
+                <h3 class="font-semibold text-2xl mb-3">AI Speed + Human Creativity</h3>
+                <p class="text-white/70">We use powerful AI to create beautiful designs fast. Then we add real human creativity and personal attention.</p>
+            </div>
+            <div class="glass p-8 rounded-3xl">
+                <div class="text-4xl mb-4">💬</div>
+                <h3 class="font-semibold text-2xl mb-3">Trusted Personal Support</h3>
+                <p class="text-white/70">You get our personal WhatsApp. No bots. No tickets. Direct access to the people who built your site.</p>
+            </div>
+            <div class="glass p-8 rounded-3xl">
+                <div class="text-4xl mb-4">❤️</div>
+                <h3 class="font-semibold text-2xl mb-3">We Treat Your Business Like Ours</h3>
+                <p class="text-white/70">We're not here to take your money and disappear. Your success is our success.</p>
+            </div>
+            <div class="glass p-8 rounded-3xl border border-[#00f0ff]/30">
+                <div class="text-4xl mb-4">💎</div>
+                <h3 class="font-semibold text-2xl mb-3">Premium AI Tools</h3>
+                <p class="text-white/70">We use advanced and costly AI tools so you get maximum value for your money.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="max-w-7xl mx-auto px-6 pb-16">
+        <div class="text-center mb-10">
+            <h2 class="text-5xl font-display font-semibold tracking-tighter">Simple &amp; Transparent Pricing</h2>
+            <p class="text-white/70 mt-2">No hidden fees. Pay once. Own it forever.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-7">
+            <!-- STARTER -->
+            <div class="glass border border-white/20 rounded-3xl p-8 relative">
+                <div class="absolute -top-3 left-6 bg-emerald-500 text-xs font-bold px-4 py-1 rounded-full">BEST VALUE</div>
+                
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-xs tracking-widest text-white/60">STARTER</div>
+                        <div class="text-3xl font-semibold mt-1">Starter Web App</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm line-through text-white/50">₹3,000</div>
+                        <div class="text-5xl font-semibold">₹2,500</div>
+                        <div class="text-xs text-emerald-400">₹500 OFF</div>
+                    </div>
+                </div>
+
+                <div class="my-6 border-t border-white/10"></div>
+
+                <ul class="space-y-3 text-sm mb-6">
+                    <li>✓ Stunning custom-designed page</li>
+                    <li>✓ Fully responsive &amp; mobile-optimized</li>
+                    <li>✓ Beautiful visuals &amp; modern typography</li>
+                    <li>✓ <strong>Free Admin Dashboard</strong> (Included)</li>
+                    <li>✓ 48-hour delivery + unlimited revisions</li>
+                    <li>✓ Personal WhatsApp support by us</li>
+                </ul>
+
+                <button onclick="selectPackage('starter')" class="w-full py-4 bg-white text-[#020617] font-semibold rounded-2xl">Get Starter Package</button>
+            </div>
+
+            <!-- FULL FLEDGED -->
+            <div class="glass border-2 border-[#00f0ff] rounded-3xl p-8 relative">
+                <div class="absolute -top-2.5 -right-1 bg-gradient-to-r from-[#00f0ff] to-[#c026ff] text-xs font-bold px-4 py-1.5 rounded-bl-2xl rounded-tr-2xl shadow-lg">PRO</div>
+                
+                <div class="flex justify-between items-start pt-2">
+                    <div>
+                        <div class="text-xs tracking-widest text-[#00f0ff]">PREMIUM</div>
+                        <div class="text-3xl font-semibold mt-1">Full-Fledged Experience</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-5xl font-semibold">₹4,999</div>
+                    </div>
+                </div>
+
+                <div class="my-6 border-t border-white/10"></div>
+
+                <ul class="space-y-3 text-sm mb-6">
+                    <li>✓ Everything in Starter + futuristic designs</li>
+                    <li>✓ Free Admin Dashboard (Included)</li>
+                    <li>✓ Priority personal support by us</li>
+                    <li>✓ Exclusive Quantum Member tag</li>
+                    <li>✓ 2 AI agents added on-demand for free</li>
+                    <li>✓ ₹200 off on your next project</li>
+                </ul>
+
+                <button onclick="selectPackage('premium')" class="w-full py-4 bg-gradient-to-r from-[#00f0ff] to-[#c026ff] text-white font-semibold rounded-2xl">Go Quantum — Get Full Experience</button>
+            </div>
+
+            <!-- QUANTUM SECRET -->
+            <div class="glass border border-white/30 rounded-3xl p-8 relative">
+                <div class="absolute -top-2.5 -right-1 bg-gradient-to-r from-purple-500 to-pink-500 text-xs font-bold px-4 py-1.5 rounded-bl-2xl rounded-tr-2xl shadow-lg">COMING SOON</div>
+                
+                <div class="flex justify-between items-start pt-2">
+                    <div>
+                        <div class="text-xs tracking-widest text-purple-400">SECRET TIER</div>
+                        <div class="text-3xl font-semibold mt-1">Quantum Secret</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-4xl font-semibold blurred-price select-none">₹??,???</div>
+                        <div class="text-xs text-purple-400">Launching Soon</div>
+                    </div>
+                </div>
+
+                <div class="my-6 border-t border-white/10"></div>
+
+                <ul class="space-y-3 text-sm mb-6 text-white/80">
+                    <li>✓ Everything in Full Fledged</li>
+                    <li>✓ Direct 1-on-1 with both founders</li>
+                    <li>✓ Custom AI agents built exclusively for you</li>
+                    <li>✓ Priority + Lifetime personal support</li>
+                    <li>✓ Quarterly strategy calls</li>
+                    <li>✓ First access to all new features</li>
+                </ul>
+
+                <button onclick="selectPackage('secret')" class="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-2xl">Join Waitlist</button>
+                
+                <p class="text-center text-xs text-white/50 mt-3">Be the first to know when it launches</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="max-w-3xl mx-auto px-6 py-16 text-center">
+        <h2 class="text-4xl font-display font-semibold tracking-tight mb-4">Ready to work directly with us?</h2>
+        <p class="text-xl text-white/70 mb-8">Get a beautiful website built with Human intelligence + Ai.</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button onclick="showGetStartedModal()" class="px-10 py-4 bg-white text-[#020617] font-semibold rounded-3xl text-lg">Start My Project Now</button>
+            <button onclick="window.open('https://wa.me/918146272071', '_blank')" class="px-8 py-4 border border-white/30 rounded-3xl text-lg flex items-center justify-center gap-x-2">
+                <i class="fa-brands fa-whatsapp"></i> <span>Chat on WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- HEART + OWNER (Backup) -->
+    <div class="text-center pb-10">
+        <div id="owner-click" class="inline-flex items-center justify-center gap-x-2 text-sm text-white/60 hover:text-white cursor-pointer transition-all">
+            <span>Made with</span> 
+            <span class="text-red-500 text-lg">
+                <i class="fa-solid fa-heart"></i>
+            </span> 
+            <span>by</span> 
+            <span class="font-medium text-white/70">Owner</span>
+        </div>
+    </div>
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="admin-login-modal" onclick="if (event.target.id === 'admin-login-modal') hideAdminLogin()" class="hidden fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="glass max-w-sm w-full rounded-3xl p-8">
+            <h3 class="text-2xl font-semibold mb-6 text-center">Admin Login</h3>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-sm text-white/70 block mb-1">Password</label>
+                    <input type="password" id="admin-password" class="w-full p-3 bg-white/5 border border-white/20 rounded-2xl" placeholder="Enter password">
+                </div>
+                <button onclick="loginAdmin()" class="w-full py-3 bg-white text-[#020617] font-semibold rounded-2xl">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD -->
+    <div id="admin-dashboard" class="hidden max-w-7xl mx-auto px-6 py-8">
+        
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-4xl font-display font-semibold">Admin Dashboard</h1>
+                <p class="text-white/60">Manage all customer requests & orders</p>
+            </div>
+            <div class="flex gap-x-3">
+                <button onclick="refreshData()" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-2xl flex items-center gap-x-2">
+                    <i class="fa-solid fa-sync"></i>
+                    <span>Refresh</span>
+                </button>
+                <button onclick="logoutAdminFromDashboard()" class="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-2xl flex items-center gap-x-2">
+                    <i class="fa-solid fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="glass p-6 rounded-3xl">
+                <div class="text-white/60 text-sm">Total Requests</div>
+                <div id="total-requests" class="text-4xl font-semibold mt-2">0</div>
+            </div>
+            <div class="glass p-6 rounded-3xl">
+                <div class="text-white/60 text-sm">Pending</div>
+                <div id="pending-count" class="text-4xl font-semibold mt-2 text-yellow-400">0</div>
+            </div>
+            <div class="glass p-6 rounded-3xl">
+                <div class="text-white/60 text-sm">Processing</div>
+                <div id="processing-count" class="text-4xl font-semibold mt-2 text-blue-400">0</div>
+            </div>
+            <div class="glass p-6 rounded-3xl">
+                <div class="text-white/60 text-sm">Completed</div>
+                <div id="completed-count" class="text-4xl font-semibold mt-2 text-emerald-400">0</div>
+            </div>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="glass rounded-3xl p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-semibold">All Orders & Requests</h2>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-white/20 text-left text-sm text-white/60">
+                            <th class="py-4 px-4">Customer</th>
+                            <th class="py-4 px-4">Business</th>
+                            <th class="py-4 px-4">Package</th>
+                            <th class="py-4 px-4">Message</th>
+                            <th class="py-4 px-4">Status</th>
+                            <th class="py-4 px-4">Date</th>
+                            <th class="py-4 px-4 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-table" class="divide-y divide-white/10">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- GET STARTED MODAL -->
+    <div id="get-started-modal" onclick="if (event.target.id === 'get-started-modal') hideGetStartedModal()" class="hidden fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="glass max-w-lg w-full rounded-3xl p-8">
+            <div class="flex justify-between mb-6">
+                <div>
+                    <div class="font-display text-3xl font-semibold">Let's build something beautiful</div>
+                    <div class="text-sm text-white/70">Directly with Human intelligence + Ai</div>
+                </div>
+                <button onclick="hideGetStartedModal()" class="text-3xl">&times;</button>
+            </div>
+            
+            <form onsubmit="submitOrderForm(event)">
+                <input type="text" id="form-name" placeholder="Your Name" class="w-full mb-4 p-3 bg-white/5 rounded-2xl" required>
+                <select id="form-business" class="w-full mb-4 p-3 bg-white/5 rounded-2xl">
+                    <option value="">Business Type</option>
+                    <option>Restaurant / Cafe</option>
+                    <option>Boutique / Retail</option>
+                    <option>Salon / Services</option>
+                    <option>Other Small Business</option>
+                </select>
+                <select id="form-package" class="w-full mb-4 p-3 bg-white/5 rounded-2xl">
+                    <option value="starter">Starter (₹2,500) - Best Value</option>
+                    <option value="premium">Full Quantum (₹4,999)</option>
+                    <option value="secret">Quantum Secret</option>
+                </select>
+                <textarea id="form-message" placeholder="Tell us what you need..." class="w-full mb-4 p-3 bg-white/5 rounded-2xl h-24 resize-y"></textarea>
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-[#00f0ff] to-[#c026ff] rounded-2xl font-semibold">Send Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SUCCESS POPUP -->
+    <div id="success-popup" onclick="hideSuccessPopup()" class="hidden fixed inset-0 bg-black/70 z-[110] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="glass max-w-md w-full rounded-3xl p-8 text-center">
+            <div class="text-5xl mb-4">✅</div>
+            <h3 class="text-2xl font-semibold mb-3">Request Sent Successfully!</h3>
+            <p class="text-white/80 mb-6">Your message was sent successfully.<br>If you didn’t get a response within one day, try messaging on WhatsApp.</p>
+            <button onclick="hideSuccessPopup()" class="px-8 py-3 bg-white text-[#020617] font-semibold rounded-2xl">OK</button>
+        </div>
+    </div>
+
+    <script>
+        const SUPABASE_URL = 'https://pfkyytohtvjjgzqvardy.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBma3l5dG9odHZqamd6cXZhcmR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3MTc5ODIsImV4cCI6MjA5NTI5Mzk4Mn0.GvtII_yC0ogk2ydgSb4DPx_4tT5hLmrjmKmuwaHeTOM';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        let allRequests = [];
+
+        // Check URL for admin access
+        function checkAdminFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('admin') === '2010') {
+                setTimeout(() => {
+                    showAdminLogin();
+                }, 600);
+            }
+        }
+
+        // ADMIN FUNCTIONS
+        async function fetchAllRequests() {
+            const { data, error } = await supabase.from('requests').select('*').order('created_at', { ascending: false });
+            if (error) return [];
+            return data;
+        }
+
+        async function updateRequestStatus(id, newStatus) {
+            const { error } = await supabase.from('requests').update({ status: newStatus }).eq('id', id);
+            if (!error) refreshData();
+        }
+
+        async function refreshData() {
+            allRequests = await fetchAllRequests();
+            renderAdminTable();
+            updateAdminStats();
+        }
+
+        function updateAdminStats() {
+            const total = allRequests.length;
+            const pending = allRequests.filter(r => !r.status || r.status === 'Pending').length;
+            const processing = allRequests.filter(r => r.status === 'Processing').length;
+            const completed = allRequests.filter(r => r.status === 'Completed').length;
+
+            document.getElementById('total-requests').innerText = total;
+            document.getElementById('pending-count').innerText = pending;
+            document.getElementById('processing-count').innerText = processing;
+            document.getElementById('completed-count').innerText = completed;
+        }
+
+        function renderAdminTable() {
+            const tbody = document.getElementById('orders-table');
+            tbody.innerHTML = '';
+
+            if (allRequests.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="py-8 text-center text-white/50">No orders found yet.</td></tr>`;
+                return;
+            }
+
+            allRequests.forEach((req) => {
+                const status = req.status || 'Pending';
+                let statusHTML = '';
+
+                if (status === 'Pending') statusHTML = `<span class="px-3 py-1 text-xs rounded-full bg-yellow-500/20 text-yellow-400">Pending</span>`;
+                else if (status === 'Processing') statusHTML = `<span class="px-3 py-1 text-xs rounded-full bg-blue-500/20 text-blue-400">Processing</span>`;
+                else if (status === 'Completed') statusHTML = `<span class="px-3 py-1 text-xs rounded-full bg-emerald-500/20 text-emerald-400">Completed</span>`;
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="py-4 px-4 font-medium">${req.name}</td>
+                    <td class="py-4 px-4 text-white/80">${req.business || '-'}</td>
+                    <td class="py-4 px-4"><span class="px-3 py-1 text-xs rounded-full bg-white/10">${req.package}</span></td>
+                    <td class="py-4 px-4 text-white/80 max-w-xs">${req.message || '-'}</td>
+                    <td class="py-4 px-4">${statusHTML}</td>
+                    <td class="py-4 px-4 text-white/60 text-sm">${new Date(req.created_at).toLocaleDateString()}</td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex justify-end gap-x-2">
+                            ${status !== 'Processing' ? `<button onclick="updateRequestStatus('${req.id}', 'Processing')" class="px-3 py-1 text-xs bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 rounded-xl">Process</button>` : ''}
+                            ${status !== 'Completed' ? `<button onclick="updateRequestStatus('${req.id}', 'Completed')" class="px-3 py-1 text-xs bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-xl">Complete</button>` : ''}
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function logoutAdminFromDashboard() {
+            document.getElementById('admin-dashboard').classList.add('hidden');
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        // MAIN WEBSITE FUNCTIONS
+        async function saveRequestToSupabase(requestData) {
+            const { data, error } = await supabase.from('requests').insert([requestData]);
+            if (error) {
+                alert("Something went wrong. Please try again or message on WhatsApp.");
+                return false;
+            }
+            return true;
+        }
+
+        async function submitOrderForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const business = document.getElementById('form-business').value || "Not specified";
+            const packageType = document.getElementById('form-package').value;
+            const message = document.getElementById('form-message').value || "No message";
+
+            const saved = await saveRequestToSupabase({ name, business, package: packageType, message });
+            if (saved) {
+                document.getElementById('get-started-modal').classList.remove('flex');
+                document.getElementById('get-started-modal').classList.add('hidden');
+                document.getElementById('success-popup').classList.remove('hidden');
+                document.getElementById('success-popup').classList.add('flex');
+            }
+            document.getElementById('form-name').value = '';
+            document.getElementById('form-business').value = '';
+            document.getElementById('form-package').value = 'starter';
+            document.getElementById('form-message').value = '';
+        }
+
+        function hideSuccessPopup() {
+            document.getElementById('success-popup').classList.remove('flex');
+            document.getElementById('success-popup').classList.add('hidden');
+        }
+
+        function selectPackage(type) {
+            const modal = document.getElementById('get-started-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.getElementById('form-package').value = type;
+        }
+
+        function showGetStartedModal() {
+            const modal = document.getElementById('get-started-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function hideGetStartedModal() {
+            const modal = document.getElementById('get-started-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        function showAdminLogin() {
+            document.getElementById('admin-login-modal').classList.remove('hidden');
+            document.getElementById('admin-login-modal').classList.add('flex');
+        }
+
+        function hideAdminLogin() {
+            document.getElementById('admin-login-modal').classList.remove('flex');
+            document.getElementById('admin-login-modal').classList.add('hidden');
+        }
+
+        function loginAdmin() {
+            const password = document.getElementById('admin-password').value;
+            if (password === '2010') {
+                hideAdminLogin();
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                document.getElementById('admin-password').value = '';
+                refreshData();
+                window.history.replaceState({}, document.title, window.location.pathname);
+            } else {
+                alert("Incorrect password");
+            }
+        }
+
+        // Initialize
+        window.onload = function() {
+            checkAdminFromURL();
+
+            // Backup click on Owner
+            const ownerClick = document.getElementById('owner-click');
+            if (ownerClick) {
+                ownerClick.addEventListener('click', showAdminLogin);
+            }
+
+            const total = document.getElementById('starter-total');
+            if (total) total.innerHTML = '₹2,500';
+        }
+
+        function checkAdminFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('admin') === '2010') {
+                setTimeout(() => {
+                    showAdminLogin();
+                }, 700);
+            }
+        }
+    </script>
+</body>
+</html>
